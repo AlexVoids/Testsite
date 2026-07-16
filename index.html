@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f17">
+  <title>Alexandr — визитка</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="toolbar glass">
+      <select id="themeSelect" aria-label="Тема">
+        <option value="dark" data-i18n="themeDark">🌙 Тёмная</option>
+        <option value="light" data-i18n="themeLight">☀️ Белая</option>
+        <option value="gaming" data-i18n="themeGaming">🎮 Игровая</option>
+      </select>
+      <select id="langSelect" aria-label="Язык">
+        <option value="ru">🇷🇺 RU</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="kk">🇰🇿 KZ</option>
+        <option value="uk">🇺🇦 UA</option>
+      </select>
+      <button id="adminOpen" class="icon-btn" type="button" aria-label="Админ-панель">⚙</button>
+    </header>
+
+    <section class="profile glass">
+      <div class="avatar-stage" aria-label="Анимированная аватарка Alexandr">
+        <span class="avatar-ring avatar-ring-one" aria-hidden="true"></span>
+        <span class="avatar-ring avatar-ring-two" aria-hidden="true"></span>
+        <video id="avatarVideo" class="avatar-video" autoplay muted loop playsinline preload="auto" poster="avatar-poster.jpg">
+          <source src="avatar.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <h1 id="displayName">꧁ᬊᬁ𒅒A̴̷l̴͝e̴̐x̴͗a̴͂n̴͑d̴͠r̴𒅒ᬊ᭄꧂ツ</h1>
+      <a class="username" href="https://t.me/sasha053578" target="_blank" rel="noreferrer">@sasha053578</a>
+      <p id="bio">«Если бы мне сказали бросить код, я бы написал скрипт, который пошлет их подальше».</p>
+
+      <div class="links">
+        <a href="https://t.me/sasha053578" target="_blank" rel="noreferrer">Telegram</a>
+        <a href="https://github.com/AlexVoids" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://tiktok.com/@workoutmiass" target="_blank" rel="noreferrer">TikTok</a>
+        <a href="https://vk.ru/sasha053578" target="_blank" rel="noreferrer">VK</a>
+        <a href="https://discord.gg/A2hrezEY" target="_blank" rel="noreferrer">Discord</a>
+        <a href="https://playerok.com/profile/AmytistShop/" target="_blank" rel="noreferrer">Playerok</a>
+      </div>
+
+      <a class="about-button" href="about.html">
+        <span aria-hidden="true">👤</span>
+        <span data-i18n="aboutMe">Подробнее обо мне</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <section class="tg-promo glass" aria-label="Telegram">
+      <div class="tg-promo-content">
+        <span class="tg-badge">TELEGRAM</span>
+        <h2 data-i18n="tgTitle">Залетай в мой ТГК</h2>
+        <p data-i18n="tgText">Личная жизнь, проекты, код, розыгрыши и все самое интересное — в одном месте.</p>
+        <a class="tg-button" href="https://t.me/zeriovoid" target="_blank" rel="noreferrer">
+          <span aria-hidden="true">✈</span>
+          <span data-i18n="tgButton">Перейти в ТГК</span>
+        </a>
+      </div>
+      <div class="ember e1" aria-hidden="true"></div>
+      <div class="ember e2" aria-hidden="true"></div>
+      <div class="ember e3" aria-hidden="true"></div>
+      <div class="ember e4" aria-hidden="true"></div>
+    </section>
+
+    <section class="card glass">
+      <div class="card-title"><h2 data-i18n="rates">Курсы (RUB)</h2><button class="refresh" type="button" data-action="rates" aria-label="Обновить">↻</button></div>
+      <div id="rates" class="rows"><div class="skeleton" data-i18n="loading">Загрузка…</div></div>
+    </section>
+
+    <section class="card glass">
+      <div class="card-title"><h2 data-i18n="weather">Погода и время</h2><button class="refresh" type="button" data-action="weather" aria-label="Обновить">↻</button></div>
+      <div class="rows">
+        <div><span data-i18n="temperature">Температура</span><b id="temp">—</b></div>
+        <div><span data-i18n="wind">Ветер</span><b id="wind">—</b></div>
+        <div><span data-i18n="city">Город</span><b id="city">Москва</b></div>
+        <div><span data-i18n="localTime">Местное время</span><b id="clock">—</b></div>
+      </div>
+    </section>
+
+    <section class="card glass">
+      <div class="card-title"><h2 data-i18n="system">Твоя система</h2></div>
+      <div id="system" class="rows"></div>
+    </section>
+
+    <section class="card glass">
+      <div class="card-title"><h2>GitHub</h2><button class="refresh" type="button" data-action="github" aria-label="Обновить">↻</button></div>
+      <div id="github" class="rows"><div class="skeleton" data-i18n="loading">Загрузка…</div></div>
+    </section>
+
+    <section class="card glass">
+      <div class="card-title"><h2 data-i18n="network">Информация о сети</h2><button class="refresh" type="button" data-action="network" aria-label="Обновить">↻</button></div>
+      <div id="network" class="rows"><div class="skeleton" data-i18n="loading">Загрузка…</div></div>
+    </section>
+
+    <section class="card glass">
+      <div class="card-title"><h2 data-i18n="quote">Цитата</h2><button class="refresh" type="button" data-action="quote" aria-label="Новая цитата">↻</button></div>
+      <blockquote id="quote">—</blockquote>
+    </section>
+
+    <section class="card glass meme-card">
+      <div class="card-title"><h2 data-i18n="memeTitle">Сгенерировать мемчик</h2><button class="refresh" type="button" data-action="meme" aria-label="Новый мем">↻</button></div>
+      <div id="memeFrame" class="meme-frame">
+        <img id="memeImage" src="memes/meme-01.jpg" alt="Случайный мем">
+      </div>
+      <button id="generateMemeBtn" class="generate-meme" type="button" data-i18n="generateMeme">Сгенерировать мемчик</button>
+    </section>
+
+    <section class="card glass">
+      <div class="card-title"><h2 data-i18n="timers">Таймеры</h2></div>
+      <div id="timers" class="rows"></div>
+    </section>
+
+    <section class="views glass">👁 <span data-i18n="views">Просмотров на этом устройстве:</span> <b id="views">1</b></section>
+  </main>
+
+  <!-- Своя плашка перед системным запросом геолокации. -->
+  <div id="locationModal" class="modal-shell location-shell" hidden>
+    <div class="modal-card location-card glass" role="dialog" aria-modal="true" aria-labelledby="locationTitle">
+      <div class="location-icon" aria-hidden="true">⌖</div>
+      <h2 id="locationTitle" data-i18n="locationTitle">Доступ к местоположению</h2>
+      <p data-i18n="locationText">Разреши геолокацию, чтобы сайт показывал точную погоду и ветер рядом с тобой. При отказе останется Москва.</p>
+      <div class="location-actions">
+        <button id="allowLocation" type="button" class="allow-location" data-i18n="allowLocation">Разрешить :)</button>
+        <button id="denyLocation" type="button" class="deny-location" data-i18n="denyLocation">Запретить :(</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Админ-панель на обычном div: работает даже в старом Android WebView. -->
+  <div id="adminModal" class="modal-shell" hidden>
+    <div class="modal-card admin glass" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <div class="card-title admin-header">
+        <h2 id="adminTitle" data-i18n="admin">Админ-панель</h2>
+        <button id="adminClose" type="button" class="icon-btn" aria-label="Закрыть">✕</button>
+      </div>
+
+      <div id="loginBox">
+        <label>
+          <span data-i18n="password">Пароль</span>
+          <input id="adminPassword" type="password" autocomplete="current-password" data-i18n-placeholder="passwordPlaceholder" placeholder="Введите пароль">
+        </label>
+        <p id="loginError" class="form-error" hidden data-i18n="wrongPassword">Неверный пароль</p>
+        <button type="button" id="loginBtn" class="primary-admin" data-i18n="login">Войти</button>
+        <small><span data-i18n="defaultPassword">Пароль по умолчанию:</span> <b>alexandr</b></small>
+      </div>
+
+      <div id="editorBox" hidden>
+        <div class="admin-tabs" role="tablist">
+          <button id="settingsTabBtn" type="button" class="admin-tab active" data-tab="settings" data-i18n="settingsTab">Настройки</button>
+          <button id="quotesTabBtn" type="button" class="admin-tab" data-tab="quotes" data-i18n="quotesTab">Цитаты</button>
+          <button id="memesTabBtn" type="button" class="admin-tab" data-tab="memes" data-i18n="memesTab">Мемы</button>
+        </div>
+
+        <section id="settingsTab" class="admin-tab-panel">
+          <label><span data-i18n="name">Ник</span><input id="editName"></label>
+          <label><span data-i18n="description">Описание</span><textarea id="editBio"></textarea></label>
+          <label><span data-i18n="newPassword">Новый пароль</span><input id="editPassword" type="password" autocomplete="new-password" data-i18n-placeholder="newPasswordPlaceholder" placeholder="Оставьте пустым, чтобы не менять"></label>
+          <button type="button" id="saveBtn" class="primary-admin" data-i18n="save">Сохранить</button>
+          <button type="button" id="resetBtn" class="secondary-admin" data-i18n="reset">Сбросить настройки</button>
+          <p id="saveStatus" class="save-status" hidden data-i18n="saved">Сохранено</p>
+        </section>
+
+        <section id="quotesTab" class="admin-tab-panel" hidden>
+          <label>
+            <span data-i18n="newQuoteLabel">Новая цитата</span>
+            <textarea id="newQuote" data-i18n-placeholder="newQuotePlaceholder" placeholder="Введите цитату"></textarea>
+          </label>
+          <button type="button" id="addQuoteBtn" class="primary-admin" data-i18n="addQuote">Добавить цитату</button>
+          <div id="quotesAdmin" class="quotes-admin-list"></div>
+        </section>
+
+        <section id="memesTab" class="admin-tab-panel" hidden>
+          <div class="meme-upload-box">
+            <label class="file-picker">
+              <span aria-hidden="true">🖼️</span>
+              <span data-i18n="selectMeme">Выбрать картинку</span>
+              <input id="memeUploadInput" type="file" accept="image/*">
+            </label>
+            <small data-i18n="memeUploadHint">После выбора можно вписать картинку целиком или обрезать её под карточку.</small>
+          </div>
+
+          <div id="cropEditor" class="crop-editor" hidden>
+            <canvas id="cropCanvas" width="900" height="1125" aria-label="Предпросмотр обрезки"></canvas>
+            <label>
+              <span data-i18n="cropMode">Режим</span>
+              <select id="cropMode">
+                <option value="contain" data-i18n="fitWhole">Вписать целиком</option>
+                <option value="cover" data-i18n="cropCard">Обрезать 4:5</option>
+              </select>
+            </label>
+            <label><span data-i18n="zoom">Масштаб</span><input id="cropZoom" type="range" min="100" max="250" value="100"></label>
+            <label><span data-i18n="moveHorizontal">Сдвиг по горизонтали</span><input id="cropX" type="range" min="-100" max="100" value="0"></label>
+            <label><span data-i18n="moveVertical">Сдвиг по вертикали</span><input id="cropY" type="range" min="-100" max="100" value="0"></label>
+            <div class="crop-actions">
+              <button id="saveCroppedMeme" type="button" class="primary-admin" data-i18n="saveMeme">Добавить мем</button>
+              <button id="cancelCrop" type="button" class="secondary-admin" data-i18n="cancel">Отмена</button>
+            </div>
+          </div>
+
+          <div class="admin-subtitle" data-i18n="uploadedMemes">Загруженные мемы</div>
+          <div id="memesAdmin" class="memes-admin-list"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
